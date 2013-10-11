@@ -1,0 +1,59 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(30);
+  animate.obj(o1);
+  load.view(20);
+  set.view(o1,20);
+  set.loop(o1,0);
+  set.cel(o1,0);
+  position(o1,11,97);
+  ignore.blocks(o1);
+  ignore.objs(o1);
+  set.priority(o1,4);
+  stop.cycling(o1);
+  draw(o1);
+  reset(f200);
+  if (v1 == 2) {
+    position(o0,5,105);
+  }
+  if (v1 == 4) {
+    position(o0,100,163);
+  }
+  draw(o0);
+  show.pic();
+}
+if (v2 == 3) {
+  new.room(4);
+}
+if (v2 == 4) {
+  print("Chris hasn't drawn picture...");
+  v6 = 0;
+}
+if (v2 == 2) {
+  new.room(6);
+}
+if (isset(f2) &&
+    v9 == 0 &&
+    !isset(f4)) {
+  if (said("examine")) {
+    print("This is your patio. Nothing much interesting here. You see your car "
+          "off to the right in the distance.");
+  }
+}
+if (said("open","door")) {
+  if (posn(o0,1,98,5,105)) {
+    stop.motion(o0);
+    new.room(2);
+  }
+  else {
+    print("You're not close enough.");
+  }
+}
+return();
+
+// Messages
+#message 1 "Chris hasn't drawn picture..."
+#message 2 "This is your patio. Nothing much interesting here. You see your car off to the right in the distance."
+#message 3 "You're not close enough."

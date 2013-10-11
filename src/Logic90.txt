@@ -1,0 +1,90 @@
+if (isset(f2) &&
+    v9 == 0 &&
+    !isset(f4)) {
+  if (said("die")) {
+    load.view(1);
+    set.view(o0,1);
+    program.control();
+    stop.motion(o0);
+    v35 = 1;
+  }
+  if (said("examine","lint")) {
+    if (has("pocket lint")) {
+      show.obj(220);
+    }
+    else {
+      print("You don't have it.");
+    }
+  }
+  if (said("examine","car key")) {
+    if (has("car key")) {
+      show.obj(221);
+    }
+    else {
+      reset(f4);
+      print("You don't have it.");
+    }
+  }
+  if (said("get","car key")) {
+    if (has("car key")) {
+      print("You already have it.");
+    }
+    else {
+      reset(f4);
+    }
+  }
+  if (said("examine","billfold")) {
+    if (has("wallet")) {
+      show.obj(222);
+    }
+    else {
+      reset(f4);
+      print("You don't have it.");
+    }
+  }
+  if (said("get","billfold")) {
+    if (has("wallet")) {
+      print("You already have it.");
+    }
+    else {
+      reset(f4);
+    }
+  }
+  if (said("examine","box")) {
+    if (has("car part")) {
+      show.obj(223);
+    }
+    else {
+      reset(f4);
+      print("You don't have it.");
+    }
+  }
+  if (said("get","box")) {
+    if (has("car part")) {
+      print("You already have it.");
+    }
+    else {
+      reset(f4);
+    }
+  }
+  if ((said("examine","anyword") ||
+      said("examine","anyword","anyword"))) {
+    print("What? Where?");
+  }
+  if ((said("get","anyword") ||
+      said("get","anyword","anyword"))) {
+    print("You can't get that here!");
+  }
+  if ((said("fix","anyword") ||
+      said("fix","anyword","anyword"))) {
+    print("What do you want me to do with it?");
+  }
+}
+return();
+
+// Messages
+#message 1 "You don't have it."
+#message 2 "You already have it."
+#message 3 "What? Where?"
+#message 4 "You can't get that here!"
+#message 5 "What do you want me to do with it?"

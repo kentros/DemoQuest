@@ -1,0 +1,35 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(50);
+  status.line.off();
+  prevent.input();
+  program.control();
+  show.pic();
+  load.sound(25);
+  sound(25,f254);
+  animate.obj(o1);
+  load.view(187);
+  set.view(o1,187);
+  set.loop(o1,0);
+  set.cel(o1,0);
+  position(o1,55,160);
+  ignore.blocks(o1);
+  ignore.objs(o1);
+  set.priority(o1,9);
+  v255 = 1;
+  cycle.time(o1,v255);
+  draw(o1);
+  end.of.loop(o1,f255);
+}
+if (have.key()) {
+  set(f14);
+  clear.lines(22,24,0);
+  stop.motion(o0);
+  reset(f33);
+  new.room(2);
+}
+return();
+
+// Messages

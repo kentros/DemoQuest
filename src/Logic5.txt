@@ -1,0 +1,68 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(66);
+  animate.obj(o1);
+  load.view(185);
+  set.view(o1,185);
+  set.loop(o1,0);
+  set.cel(o1,0);
+  position(o1,21,70);
+  ignore.blocks(o1);
+  ignore.objs(o1);
+  set.priority(o1,9);
+  v255 = 9;
+  cycle.time(o1,v255);
+  draw(o1);
+  animate.obj(o2);
+  load.view(186);
+  set.view(o2,186);
+  set.loop(o2,0);
+  set.cel(o2,0);
+  position(o2,124,98);
+  ignore.blocks(o2);
+  ignore.objs(o2);
+  set.priority(o2,14);
+  v255 = 11;
+  cycle.time(o2,v255);
+  draw(o2);
+  if (v1 == 4) {
+    position(o0,93,70);
+  }
+  draw(o0);
+  show.pic();
+  print("I don't think we're in Kansas anymore Toto...");
+}
+if (v2 == 1) {
+  new.room(4);
+}
+if (v2 == 3) {
+  print("I'm sorry...  I can't let you do that!");
+  v6 = 0;
+}
+if (v2 == 4) {
+  print("You want to explore the alien planet?  Then buy the full version!");
+  v6 = 0;
+}
+if (v2 == 2) {
+  print("You start to explore then realize that you need to go to school!");
+  v6 = 0;
+}
+if (isset(f2) &&
+    v9 == 0 &&
+    !isset(f4)) {
+  if (said("examine")) {
+    print("Whoa! You are on an alien planet of some sort. You see some weird "
+          "green aliens, but feel no immediate danger. (Because the programmer "
+          "hasn't had time to put any danger in here.)");
+  }
+}
+return();
+
+// Messages
+#message 1 "I don't think we're in Kansas anymore Toto..."
+#message 2 "I'm sorry...  I can't let you do that!"
+#message 3 "You want to explore the alien planet?  Then buy the full version!"
+#message 4 "You start to explore then realize that you need to go to school!"
+#message 5 "Whoa! You are on an alien planet of some sort. You see some weird green aliens, but feel no immediate danger. (Because the programmer hasn't had time to put any danger in here.)"

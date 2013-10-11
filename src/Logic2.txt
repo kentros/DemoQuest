@@ -1,0 +1,165 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(10);
+  animate.obj(o1);
+  load.view(3);
+  set.view(o1,3);
+  set.loop(o1,0);
+  set.cel(o1,0);
+  position(o1,145,89);
+  ignore.blocks(o1);
+  ignore.objs(o1);
+  set.priority(o1,4);
+  stop.cycling(o1);
+  draw(o1);
+  reset(f200);
+  reset(f201);
+  animate.obj(o2);
+  load.view(6);
+  set.view(o2,6);
+  set.loop(o2,0);
+  set.cel(o2,0);
+  position(o2,100,120);
+  set.priority(o2,4);
+  ignore.objs(o2);
+  stop.cycling(o2);
+  v255 = 2;
+  if (obj.in.room("car key",v255)) {
+    draw(o2);
+  }
+  animate.obj(o3);
+  load.view(6);
+  set.view(o3,6);
+  set.loop(o3,1);
+  set.cel(o3,0);
+  position(o3,60,120);
+  set.priority(o3,4);
+  ignore.objs(o3);
+  stop.cycling(o3);
+  v255 = 2;
+  if (obj.in.room("wallet",v255)) {
+    draw(o3);
+  }
+  animate.obj(o4);
+  load.view(2);
+  set.view(o4,2);
+  set.loop(o4,1);
+  set.cel(o4,0);
+  position(o4,1,163);
+  ignore.blocks(o4);
+  ignore.objs(o4);
+  set.priority(o4,9);
+  v255 = 4;
+  cycle.time(o4,v255);
+  draw(o4);
+  end.of.loop(o4,f255);
+  animate.obj(o5);
+  load.view(2);
+  set.view(o5,2);
+  set.loop(o5,0);
+  set.cel(o5,0);
+  position(o5,1,40);
+  ignore.blocks(o5);
+  ignore.objs(o5);
+  set.priority(o5,9);
+  v255 = 3;
+  cycle.time(o5,v255);
+  draw(o5);
+  end.of.loop(o5,f255);
+  if ((v1 == 1 ||
+      v1 == 0)) {
+    position(o0,85,158);
+    status.line.on();
+    accept.input();
+  }
+  if (v1 == 3) {
+    position(o0,140,87);
+  }
+  draw(o0);
+  show.pic();
+}
+if (said("examine")) {
+  print("You are in your room and as usual it's a mess.");
+}
+if (said("get","car key")) {
+  v255 = 2;
+  if (obj.in.room("car key",v255)) {
+    if (posn(o0,92,111,108,129)) {
+      print("You pick up your car key. It's to your Volkswagen!");
+      erase(o2);
+      get("car key");
+      v3++;
+    }
+    else {
+      print("You're not close enough.");
+    }
+  }
+  else {
+    reset(f4);
+  }
+}
+if (said("examine","car key")) {
+  v255 = 2;
+  if (obj.in.room("car key",v255)) {
+    print("Your car key is lying on the floor waiting to be picked up");
+  }
+  else {
+    reset(f4);
+  }
+}
+if (said("get","billfold")) {
+  v255 = 2;
+  if (obj.in.room("wallet",v255)) {
+    if (posn(o0,44,107,67,130)) {
+      print("You take your wallet. It's a good thing to have.");
+      erase(o3);
+      get("wallet");
+      v3++;
+    }
+    else {
+      print("You're not close enough.");
+    }
+  }
+  else {
+    reset(f4);
+  }
+}
+if (said("examine","billfold")) {
+  v255 = 2;
+  if (obj.in.room("wallet",v255)) {
+    print("Your wallet is by the bed.");
+  }
+  else {
+    reset(f4);
+  }
+}
+if (said("open","door")) {
+  if (posn(o0,140,87,148,93)) {
+    stop.motion(o0);
+    program.control();
+    end.of.loop(o1,f200);
+  }
+  else {
+    print("You're not close enough.");
+  }
+}
+if (isset(f200)) {
+  reset(f200);
+  ignore.blocks(o0);
+  move.obj(o0,149,79,1,f201);
+}
+if (isset(f201)) {
+  observe.blocks(o0);
+  new.room(3);
+}
+return();
+
+// Messages
+#message 1 "You are in your room and as usual it's a mess."
+#message 2 "You pick up your car key. It's to your Volkswagen!"
+#message 3 "You're not close enough."
+#message 4 "Your car key is lying on the floor waiting to be picked up"
+#message 5 "You take your wallet. It's a good thing to have."
+#message 6 "Your wallet is by the bed."

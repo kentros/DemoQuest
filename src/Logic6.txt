@@ -1,0 +1,184 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(55);
+  animate.obj(o1);
+  load.view(26);
+  set.view(o1,26);
+  set.loop(o1,0);
+  set.cel(o1,0);
+  position(o1,95,75);
+  ignore.blocks(o1);
+  ignore.objs(o1);
+  set.priority(o1,7);
+  draw(o1);
+  stop.cycling(o1);
+  block(93,65,128,78);
+  animate.obj(o2);
+  load.view(112);
+  set.view(o2,112);
+  set.loop(o2,0);
+  set.cel(o2,0);
+  position(o2,52,134);
+  ignore.blocks(o2);
+  ignore.objs(o2);
+  set.priority(o2,12);
+  if (obj.in.room("car part",v0)) {
+    draw(o2);
+  }
+  stop.cycling(o2);
+  if (v1 == 3) {
+    position(o0,26,159);
+  }
+  if (v1 == 4) {
+    position(o0,69,164);
+  }
+  draw(o0);
+  show.pic();
+}
+if (said("get","box")) {
+  v255 = 6;
+  if (obj.in.room("car part",v255)) {
+    if (posn(o0,40,130,60,155)) {
+      print("You find just what you need to fix your car.");
+      erase(o2);
+      get("car part");
+      v3++;
+    }
+    else {
+      print("You're not close enough.");
+    }
+  }
+  else {
+    reset(f4);
+  }
+}
+if (said("examine","box")) {
+  v255 = 6;
+  if (obj.in.room("car part",v255)) {
+    print("That part looks like it might come in handy!");
+  }
+  else {
+    reset(f4);
+  }
+}
+if (said("examine","car")) {
+  print("Your car looks great!");
+}
+if (!isset(f250)) {
+  if (said("open","door")) {
+    if (posn(o0,104,72,120,84)) {
+      set.loop(o1,1);
+      end.of.loop(o1,f255);
+      erase(o0);
+      set(f250);
+    }
+    else {
+      print("You're not close enough.");
+    }
+  }
+  else {
+    reset(f4);
+  }
+}
+if (isset(f250)) {
+  if (said("open","door")) {
+    set.loop(o1,1);
+    set.cel(o1,4);
+    reverse.loop(o1,f255);
+    force.update(o1);
+    position(o0,80,66);
+    draw(o0);
+    reset(f250);
+  }
+  if (said("fix","car key")) {
+    if (has("car key")) {
+      if (isset(f249)) {
+        print("Your car starts and you're off!");
+        new.room(7);
+      }
+      else {
+        print("You crank the engine, but it doesn't turn over...  You need to "
+              "fix it!");
+      }
+    }
+    else {
+      print("You need your car key in order to use it buddy!");
+    }
+  }
+}
+if (v2 == 1) {
+  print("It would not be wise to walk to school...  there is a car right here "
+        "ya know!");
+}
+if (v2 == 3) {
+  new.room(4);
+}
+if (v2 == 4) {
+  new.room(3);
+}
+if (v2 == 2) {
+  print("Nothing to see there!  Go back buddy!");
+}
+if (said("open","hood")) {
+  if (posn(o0,75,62,89,77)) {
+    set.cel(o1,1);
+  }
+  else {
+    print("You're not close enough.");
+  }
+}
+if (said("fix","box","anyword")) {
+  if (posn(o0,75,62,89,77)) {
+    print("You put in the part and hope that it works!");
+    set(f249);
+    set.cel(o1,0);
+    drop("car part");
+  }
+  else {
+    print("You're not close enough.");
+  }
+}
+if (said("fix","anyword")) {
+  if (posn(o0,75,62,89,77)) {
+    print("You put in the part and hope that it works!");
+    set(f249);
+    set.cel(o1,0);
+    drop("car part");
+  }
+  else {
+    print("You're not close enough.");
+  }
+}
+if (said("close","hood")) {
+  if (posn(o0,75,62,89,77)) {
+    set.cel(o1,0);
+  }
+  else {
+    print("You're not close enough.");
+  }
+}
+if (isset(f2) &&
+    v9 == 0 &&
+    !isset(f4)) {
+  if (said("examine")) {
+    print("You are by your garage...  Your car is right here!");
+    print("There is a box of car parts for your VW by the garage.");
+  }
+}
+return();
+
+// Messages
+#message 1 "You find just what you need to fix your car."
+#message 2 "You're not close enough."
+#message 3 "That part looks like it might come in handy!"
+#message 4 "Your car looks great!"
+#message 5 "Your car starts and you're off!"
+#message 6 "You crank the engine, but it doesn't turn over...  You need to fix it!"
+#message 7 "You need your car key in order to use it buddy!"
+#message 8 "It would not be wise to walk to school...  there is a car right here ya know!"
+#message 9 "Nothing to see there!  Go back buddy!"
+#message 10 "You put in the part and hope that it works!"
+#message 11 "You are by your garage...  Your car is right here!"
+#message 12 "There is a box of car parts for your VW by the garage."

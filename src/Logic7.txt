@@ -1,0 +1,93 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(1);
+  load.sound(2);
+  sound(2,f255);
+  animate.obj(o4);
+  load.view(25);
+  set.view(o4,25);
+  set.loop(o4,0);
+  set.cel(o4,0);
+  position(o4,104,166);
+  ignore.blocks(o4);
+  ignore.objs(o4);
+  set.priority(o4,9);
+  v255 = 2;
+  cycle.time(o4,v255);
+  draw(o4);
+  animate.obj(o1);
+  load.view(11);
+  set.view(o1,11);
+  set.loop(o1,0);
+  set.cel(o1,0);
+  position(o1,65,120);
+  ignore.blocks(o1);
+  ignore.objs(o1);
+  set.priority(o1,9);
+  v255 = 2;
+  cycle.time(o1,v255);
+  draw(o1);
+  animate.obj(o2);
+  load.view(12);
+  set.view(o2,12);
+  set.loop(o2,0);
+  set.cel(o2,0);
+  position(o2,65,120);
+  ignore.blocks(o2);
+  ignore.objs(o2);
+  set.priority(o2,11);
+  v255 = 2;
+  cycle.time(o2,v255);
+  animate.obj(o3);
+  load.view(12);
+  set.view(o3,12);
+  set.loop(o3,0);
+  set.cel(o3,2);
+  position(o3,50,140);
+  ignore.blocks(o3);
+  ignore.objs(o3);
+  set.priority(o3,11);
+  v255 = 2;
+  cycle.time(o3,v255);
+  animate.obj(o5);
+  load.view(12);
+  set.view(o5,12);
+  set.loop(o5,1);
+  set.cel(o5,0);
+  position(o5,1,90);
+  ignore.blocks(o5);
+  ignore.objs(o5);
+  set.priority(o5,9);
+  v255 = 1;
+  cycle.time(o5,v255);
+  show.pic();
+}
+if (!isset(f221)) {
+  move.obj(o4,50,140,1,f211);
+}
+if (isset(f211)) {
+  reset(f211);
+  draw(o2);
+  draw(o3);
+  draw(o5);
+  set(f221);
+  end.of.loop(o5,f222);
+  position(o4,1,90);
+}
+if (isset(f222)) {
+  erase(o4);
+  print("Whoa!  You are going through time.");
+  print("Please note: This is only a demo, and no rabbits were harmed in the "
+        "making...  I apologize for the lack of playability right now.");
+  print("That's all...  for now");
+  reset(f222);
+  quit(0);
+}
+return();
+
+// Messages
+#message 1 "Whoa!  You are going through time."
+#message 2 "Please note: This is only a demo, and no rabbits were harmed in the making...  I apologize for the lack of playability right now."
+#message 3 "That's all...  for now"

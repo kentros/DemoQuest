@@ -1,0 +1,52 @@
+if (isset(f5)) {
+  load.pic(v0);
+  draw.pic(v0);
+  discard.pic(v0);
+  set.horizon(53);
+  animate.obj(o1);
+  load.view(52);
+  set.view(o1,52);
+  set.loop(o1,0);
+  set.cel(o1,0);
+  ignore.horizon(o1);
+  position(o1,18,14);
+  ignore.blocks(o1);
+  ignore.objs(o1);
+  set.priority(o1,9);
+  v255 = 7;
+  cycle.time(o1,v255);
+  draw(o1);
+  if (v1 == 3) {
+    position(o0,70,60);
+  }
+  if (v1 == 6) {
+    position(o0,135,66);
+  }
+  draw(o0);
+  show.pic();
+}
+if (v2 == 1) {
+  new.room(3);
+}
+if (v2 == 3) {
+  new.room(5);
+}
+if (v2 == 4) {
+  print("You are discouraged to continue due to sightings of poison ivy!");
+  v6 = 0;
+}
+if (v2 == 2) {
+  new.room(6);
+}
+if (isset(f2) &&
+    v9 == 0 &&
+    !isset(f4)) {
+  if (said("examine")) {
+    print("You are in your back yard. There isn't much here.");
+  }
+}
+return();
+
+// Messages
+#message 1 "You are discouraged to continue due to sightings of poison ivy!"
+#message 2 "You are in your back yard. There isn't much here."
