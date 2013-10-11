@@ -1,6 +1,6 @@
 # DemoQuest
 
-**By Kenny Ingle**
+**By Kenny Ingle and Chris Maupin**
 
 This is a demo game that takes advantage of Sierra's AGI text-based adventure game platform used through the 80's.
 
